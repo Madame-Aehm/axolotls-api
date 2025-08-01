@@ -1,16 +1,12 @@
 import streamlit as st
-from dotenv import load_dotenv
-import os
 import psycopg
 import pandas as pd
-
-load_dotenv()
 
 st.title("Hello World")
 st.badge("Home", color="violet")
 
 def getData():
-    dbconn = os.getenv("DBCONN")
+    dbconn = st.secrets["DBCONN"]
     conn = psycopg.connect(dbconn)
     cur = conn.cursor()
     
