@@ -16,6 +16,9 @@ def getData():
     
     cur.execute(query)
     data = cur.fetchall()
+    
+    cur.close()
+    conn.close()
     # df = pd.DataFrame(data, columns=["date", "city", "temp", "feels", "description"])
     return data
     
